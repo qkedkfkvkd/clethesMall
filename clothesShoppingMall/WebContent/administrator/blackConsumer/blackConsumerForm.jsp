@@ -17,13 +17,14 @@
 
 <%
 	request.setCharacterEncoding("euc-kr");
-	String buyer_id = request.getParameter("buy_id");
-	String request_seller_id = request.getParameter("re_sel_id");
+	String buyer_id = request.getParameter("buy_id");				// 제재 요청된 구매자 아이디
+	String request_seller_id = request.getParameter("re_sel_id");	// 제재 요청한 판매자 아이디
 	
 	System.out.println(buyer_id + "<-- buyer_id   blackConsumerDetail.jsp");
 	System.out.println(request_seller_id + "<-- request_seller_id   blackConsumerDetail.jsp");
 	BlackConsumerDao bcdao = new BlackConsumerDao();
 	BlackConsumer bcn = bcdao.blaconDetail(buyer_id, request_seller_id);
+	// 기본키인 구매자 아이디와 판매자 아이디로 조회하여 결과값을 반환 받는다.
 %>
 <h3>블랙컨슈머 제재 요청</h3>
 <form action="<%=request.getContextPath()%>/administrator/blackConsumer/blackConsumerPro.jsp" method="post">

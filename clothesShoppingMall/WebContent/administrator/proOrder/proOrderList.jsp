@@ -30,8 +30,9 @@
 <%
 	Pro_orderDao prdao = new Pro_orderDao();
 	List<Pro_order> prlist = prdao.proOrderAllList();
+	// 전체 주문 현황을 리스트로 하여 가져오기
 	
-	for(int i=0; i<prlist.size(); i++) {
+	for(int i=0; i<prlist.size(); i++) {	// 전체 주문 현황 갯수 만큼 회전
 %>
 	<tr>
 		<td><%=prlist.get(i).getO_code() %></td>
@@ -42,7 +43,7 @@
 		<td><%=prlist.get(i).getO_payment() %></td>
 		<td>
 		<a href="<%=request.getContextPath()%>/administrator/proOrder/proOrderDetail.jsp?pror_code=<%=prlist.get(i).getO_code()%>">
-		상세 보기</a>
+		상세 보기</a>								<!-- 상세 조회를 위해 주문 테이블의 기본키인 주문 코드를 넘긴다. -->
 		</td>
 	</tr>
 <%	}%>	

@@ -20,6 +20,7 @@
 method="post">
 	<input type="hidden" value="<%=bcn.getBuyer_id() %>" name="buyer_id">
 	<input type="hidden" value="<%=bcn.getRequest_seller_id() %>" name="request_seller_id">
+	<!-- 블랙컨슈머 테이블의 기본키가 되는 블랙컨슈머 구매자 아이디와 요청 판매자 아이디를 숨겨서 다음 폼에 넘긴다. -->
 	<table>
 		<tr>
 			<td>

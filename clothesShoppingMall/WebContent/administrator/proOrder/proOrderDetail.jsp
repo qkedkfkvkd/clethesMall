@@ -21,6 +21,7 @@
 	
 	Pro_orderDao prdao = new Pro_orderDao();
 	Pro_order pro = prdao.proOrderDetail(o_code);
+	// 주문 테이블의 기본키인 주문 코드를 매개변수로 넣어서 주문 상세 가져오기
 %>
 <h3>상품 - 상품 옵션 상세 조회</h3>
 <table border="1">

@@ -29,7 +29,9 @@
 <%
 	ProductDao pdao = new ProductDao();
 	List<Product> plist = pdao.productAllList();
-	for(int i=0; i<plist.size(); i++) {
+	// 전체 상품 리스트를 얻어온다.
+	
+	for(int i=0; i<plist.size(); i++) { // 상품 갯수만큼 회전
 %>
 	<tr>
 		<td><%=plist.get(i).getP_code() %></td>

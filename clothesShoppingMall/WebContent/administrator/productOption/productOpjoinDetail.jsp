@@ -23,8 +23,13 @@
 	
 	Pro_optionDao podao = new Pro_optionDao();
 	Map<String, Object> map = podao.productOpDetail(prop_code);
+	// 상품 테이블과 상품 옵션 테이블을 조인했기 때문에 상품 객체와 상품 옵션 객체 두개를 하나의 map 객체에 담아서 리턴하였다.
+	
 	Product pro = (Product)map.get("product");
+	// "product" 키값으로 넣은 상품 객체 가져오기
+	
 	Pro_option prop = (Pro_option)map.get("pro_option");
+	// "pro_option" 키값으로 넣은 상품 옵션 객체 가져오기
 %>
 <h3>상품 - 상품 옵션 상세 조회</h3>
 <table border="1">

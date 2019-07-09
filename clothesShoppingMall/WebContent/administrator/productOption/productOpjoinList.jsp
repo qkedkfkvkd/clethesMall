@@ -32,10 +32,15 @@
 <%
 	Pro_optionDao podao = new Pro_optionDao();
 	Map<String, Object> map = podao.productOpAllList();
-	List<Product> prolist = (List<Product>)map.get("prolist");
-	List<Pro_option> proplist = (List<Pro_option>)map.get("proplist");
+	// 상품 테이블과 상품 옵션 테이블을 조인했기 때문에 상품 리스트와 상품 옵션 리스트 두개를 하나의 map 객체에 담아서 리턴하였다.
 	
-	for(int i=0; i<prolist.size(); i++) {
+	List<Product> prolist = (List<Product>)map.get("prolist");
+	// 상품 리스트를 "prolist" 키값으로 받아오기
+	
+	List<Pro_option> proplist = (List<Pro_option>)map.get("proplist");
+	// 상품 옵션 리스트를 "proplist" 키값으로 받아오기
+	
+	for(int i=0; i<prolist.size(); i++) {	// 상품 리스트와 상품 옵션 리스트는 사이즈가 같으므로 아무거나 써도 상관없다.
 %>
 	<tr>
 		<td><%=prolist.get(i).getP_code() %></td>
@@ -46,7 +51,7 @@
 		<td><%=prolist.get(i).getP_price() %></td>
 		<td>
 		<a href="<%=request.getContextPath()%>/administrator/productOption/productOpjoinDetail.jsp?prop_code=<%=proplist.get(i).getPro_op_code()%>">
-		상세 보기</a>
+		상세 보기</a>															<!-- 상품과 상품 옵션 테이블 조인시 한개의 레코드만 가져오려면 상품 옵션을 넘겨야 한다. -->
 		</td>
 	</tr>
 <%	}%>

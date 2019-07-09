@@ -19,7 +19,10 @@
 <%	request.setCharacterEncoding("euc-kr"); %>
 <jsp:useBean id="pro" class="kr.or.ksmart.dto.Product"/>
 <jsp:setProperty name="pro" property="*"/>
-
+<!--
+	이전 폼에서 넘어온 name값과 Product클래스의 setter명과 같다면 자동으로 값이 입력된다.
+	request.getParameter("orderby");가 자동으로 이루어진다.
+-->
 <h3>검색 상품 리스트</h3>
 <table border="1">
 	<tr>
@@ -35,7 +38,9 @@
 <%
 	ProductDao pdao = new ProductDao();
 	List<Product> plist = pdao.productSearchList(pro);
-	for(int i=0; i<plist.size(); i++) {
+	// 검색된 상품 전체 리스트 가져오기
+	
+	for(int i=0; i<plist.size(); i++) {	// 검색된 상품 리스트의 갯수만큼 회전
 %>
 	<tr>
 		<td><%=plist.get(i).getP_code() %></td>

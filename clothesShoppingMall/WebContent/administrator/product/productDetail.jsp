@@ -22,6 +22,7 @@
 	
 	ProductDao pdao = new ProductDao();
 	Product pro = pdao.productDetail(p_code);
+	// 상품 테이블의 기본키인 상품 코드로 상품 상세 정보를 얻어온다.
 %>
 
 <h3>상품 상세 조회</h3>

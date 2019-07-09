@@ -28,8 +28,13 @@
 <%
 	BlackConsumerDao bcdao = new BlackConsumerDao();
 	List<BlackConsumer> bclist = bcdao.blackAllList();
+	// 현재 재제 중(treat_whether : 1 (true))거나 제재 요청 중(treat_whether:0 (false))인
+	// 블랙컨슈머 전체 리스트
+	
 	List<BlackConsumer> bcReqlist = bcdao.request_blacon();
-	for(int i=0; i<bclist.size(); i++) {
+	// 판매자로부터 제재 요청된 (treat_whether:0 (false)) 블랙컨슈머 리스트 불러오기
+	
+	for(int i=0; i<bclist.size(); i++) { // 전체 리스트 만큼 돌린다.
 %>
 	<tr>
 		<td><%=bclist.get(i).getBuyer_id() %></td>
@@ -37,27 +42,27 @@
 		<td><%=bclist.get(i).isTreat_whether() %></td>
 		<td>
 <a href="<%=request.getContextPath()%>/administrator/blackConsumer/blackConsumerDetail.jsp?buy_id=<%=bclist.get(i).getBuyer_id()%>&re_sel_id=<%=bclist.get(i).getRequest_seller_id()%>">
-상세 보기</a>
+상세 보기</a>										<!-- 블랙컨슈머 상세 조회를 위해 기본키가 되는 구매자 아이디와 판매자 아이디를 넘긴다. -->
 		</td>
 	</tr>
 <%	}%>
 </table>
 <hr/>
 <table border="1">
-<%	if(bcReqlist.size() == 0) {%>
+<%	if(bcReqlist.size() == 0) {%> <!-- 제재 여부가 (treat_whether:1 (true))인 블랙컨슈머들만 있다면 -->
 	<tr>
 		<td>신청된 블랙컨슈머 리스트가 없습니다.</td>
 	</tr>
 <%
 	} else {
-		for(int i=0; i<bcReqlist.size(); i++) {
+		for(int i=0; i<bcReqlist.size(); i++) { // treat_whether:0인 블랙컨슈머가 있다면
 %>
 	<tr>
 		<td>
 			판매자<%=bcReqlist.get(i).getRequest_seller_id()%>님께서
 			구매자<%=bcReqlist.get(i).getBuyer_id()%>를 블랙컨슈머 지정 요청
 <a href="<%=request.getContextPath()%>/administrator/blackConsumer/blackConsumerForm.jsp?buy_id=<%=bcReqlist.get(i).getBuyer_id()%>&re_sel_id=<%=bcReqlist.get(i).getRequest_seller_id()%>">
-내용보기</a>
+내용보기</a>										<!-- 블랙컨슈머 상세 조회를 위해 기본키가 되는 구매자 아이디와 판매자 아이디를 넘긴다. -->
 		</td>
 	</tr>
 <%

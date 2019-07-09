@@ -21,6 +21,7 @@
 	System.out.println(u_id + "<-- u_id   gaeinMem.jsp");
 	MemberDao mdao = new MemberDao();
 	Member mem = mdao.gaeinMem(u_id);
+	// 회원 테이블의 기본키인 아이디로 회원 상세정보 반환
 %>
 
 <h3>개인 회원 상세 보기</h3>
