@@ -1,8 +1,7 @@
 package kr.or.ksmart.dto;
 
 public class Retrun_refund {
-	private String ret_ref_code;		// 반품 환불 코드 (기본키)
-	private String o_code;				// 주문 코드 (기본키)
+	private String retf_o_code;			// 반품 환불 코드 (기본키) - 주문테이블의 주문코드와 일치
 	private String p_code;				// 상품코드 (외래키 테이블:상품)
 	private String seller_id;			// 판매자 아이디 (외래키 테이블:회원)
 	private String buyer_id;			// 구매자 아이디 (외래키 테이블:회원)
@@ -13,19 +12,12 @@ public class Retrun_refund {
 	private int return_payment;			// 환불 금액
 	// 주문 수량과 개당 가격을 곱한 결과를 넣는다.
 	
-	public String getRet_ref_code() {
-		return ret_ref_code;
+	public String getRetf_o_code() {
+		return retf_o_code;
 	}
-	public void setRet_ref_code(String ret_ref_code) {
-		System.out.println(ret_ref_code + " <- ret_ref_code   setRet_ref_code()   Retrun_refund.java");
-		this.ret_ref_code = ret_ref_code;
-	}
-	public String getO_code() {
-		return o_code;
-	}
-	public void setO_code(String o_code) {
-		System.out.println(o_code + " <- o_code   setO_code()   Retrun_refund.java");
-		this.o_code = o_code;
+	public void setRetf_o_code(String retf_o_code) {
+		System.out.println(retf_o_code + " <- retf_o_code   setRetf_o_code()   Retrun_refund.java");
+		this.retf_o_code = retf_o_code;
 	}
 	public String getP_code() {
 		return p_code;
