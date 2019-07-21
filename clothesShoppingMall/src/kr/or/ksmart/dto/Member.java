@@ -12,6 +12,17 @@ public class Member {
 	private String u_address;		// 주소
 	private boolean u_sanctions;	// 제재 여부 : 디비에는 (0, 1)로 저장됨
 	
+	
+	// 디비 컬럼명 아님
+	// 가입, 수정 시 폰번호 받는 변수			010 - 1234 - 6789
+	private String u_phone_1;				//	(1) -  (2) -  (3)
+	private String u_phone_2;
+	private String u_phone_3;
+	
+	// 가입, 수정 시 이메일 받는 변수			swvo__vo@naver.com
+	private String u_email_id;			// 아이디  swvo__vo
+	private String u_email_domain;		// 도메인	naver.com
+	
 	public String getU_id() {
 		return u_id;
 	}
@@ -74,6 +85,41 @@ public class Member {
 	public void setU_sanctions(boolean u_sanctions) {
 		System.out.println(u_sanctions + " <- u_sanctions   setU_sanctions()   Member.java");
 		this.u_sanctions = u_sanctions;
+	}
+	public String getU_phone_1() {
+		return u_phone_1;
+	}
+	public void setU_phone_1(String u_phone_1) {
+		System.out.println(u_phone_1 + " <- u_phone_1   setU_phone_1()   Member.java");
+		this.u_phone_1 = u_phone_1;
+	}
+	public String getU_phone_2() {
+		return u_phone_2;
+	}
+	public void setU_phone_2(String u_phone_2) {
+		System.out.println(u_phone_2 + " <- u_phone_2   setU_phone_2()   Member.java");
+		this.u_phone_2 = u_phone_2;
+	}
+	public String getU_phone_3() {
+		return u_phone_3;
+	}
+	public void setU_phone_3(String u_phone_3) {
+		System.out.println(u_phone_3 + " <- u_phone_3   setU_phone_3()   Member.java");
+		this.u_phone_3 = u_phone_3;
+	}
+	public String getU_email_id() {
+		return u_email_id;
+	}
+	public void setU_email_id(String u_email_id) {
+		System.out.println(u_email_id + " <- u_email_id   setU_email_id()   Member.java");
+		this.u_email_id = u_email_id;
+	}
+	public String getU_email_domain() {
+		return u_email_domain;
+	}
+	public void setU_email_domain(String u_email_domain) {
+		System.out.println(u_email_domain + " <- u_email_domain   setU_email_domain()   Member.java");
+		this.u_email_domain = u_email_domain;
 	}
 	
 }

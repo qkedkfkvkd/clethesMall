@@ -12,6 +12,38 @@ import kr.or.ksmart.dto.Member;
 
 public class MemberDao {
 	
+	public int memIdChk(String u_id) throws ClassNotFoundException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		try{
+			conn = DriverDb.driverDBcon();
+			// 커넥션 객체를 얻어온다.
+			
+			pstmt = conn.prepareStatement("select count(*) as uid from member where u_id=?");
+			// 매개변수로 받은 회원 아이디로 멤버 테이블 조회할 쿼리문 작성
+			
+			pstmt.setString(1, u_id);	// 회원 아이디 삽입
+			System.out.println(pstmt + "<-- pstmt   memIdChk()   MemberDao.java");
+			
+			rs = pstmt.executeQuery();
+			System.out.println(rs + "<-- rs   memIdChk()   MemberDao.java");
+			
+			if(rs.next()) {
+				result = rs.getInt("uid");
+				// 해당 계정이 존재하면 1을, 존재하지 않으면 0을 리턴한다.
+			}
+		} catch(SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		}
+		return result;
+	}
+	
 	// 개인 회원 조회
 	public Member gaeinMem(String u_id) throws ClassNotFoundException {
 		Connection conn = null;

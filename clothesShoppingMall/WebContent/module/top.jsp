@@ -19,11 +19,11 @@ System.out.println(sLevel+"<- sLevel top.jsp");
 if(sLevel != null){
 	if(sLevel.equals("구매자")){
 %>
-<a href="<%= request.getContextPath() %>/minsert/m_insert_form.jsp">01 회원등록</a>
+<a href="<%= request.getContextPath() %>/member/memberInsertForm.jsp">01 회원등록</a>
 <%		
 	}else if(sLevel.equals("판매자")){
 %>
-<a href="<%= request.getContextPath() %>/minsert/m_insert_form.jsp">01 회원등록</a>
+<a href="<%= request.getContextPath() %>/member/memberInsertForm.jsp">01 회원등록</a>
 <%		
 	}else if(sLevel.equals("관리자")){
 		response.sendRedirect(request.getContextPath() + "/administrator/adminIndex.jsp");		
@@ -35,7 +35,7 @@ if(sLevel != null){
 <%	
 }else{
 %>
-<a href="<%= request.getContextPath() %>/minsert/m_insert_form.jsp">01 회원등록</a>
+<a href="<%= request.getContextPath() %>/member/memberInsertForm.jsp">01 회원등록</a>
 <!-- 로그인 전 화면 시작 -->
 <br/><br/>
 <form action="<%= request.getContextPath() %>/login/loginPro.jsp" method="post">
